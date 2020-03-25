@@ -4,5 +4,7 @@ services:
     image: 'redis:5-alpine3.11'
   ytdlpl:
     build: .
+    volumes:
+      - ~/Videos/ytdlpl:/root/Videos/ytdlpl
     depends_on:
       - redis
