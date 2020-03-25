@@ -1,0 +1,12 @@
+version: '3'
+services:
+  redis:
+    image: 'redis:5-alpine3.11'
+  ytdlplnq:
+    image: 'redis:5-alpine3.11'
+    depends_on:
+      - redis
+  ytdlpl:
+    build: .
+    depends_on:
+      - redis

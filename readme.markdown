@@ -36,6 +36,9 @@ To enqueue a URL for downloading, simply
 ./ytdlplnq https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ```
 
+Note that there are a lot of options to customize youtube-dl's behavior but
+such pass-through behavior is not yet implemented here.
+
 ## License
 
 MIT
