@@ -2,6 +2,8 @@ import logging
 import redis
 import youtube_dl
 
+from urllib.error import HTTPError
+
 LIST_NAME = "YTDLPLQ"
 DL_DEST = "/root/Videos/ytdlpl"
 
@@ -24,5 +26,13 @@ if __name__ == "__main__":
         url = url[1].decode("utf-8")
         logger.info("Got %s, downloading..." % url)
         with youtube_dl.YoutubeDL(ytdl_opts) as ydl:
-            # TODO error handling
-            ydl.download([url])
+            try:
+                ydl.download([url])
+            except HTTPError as httpe:
+                logger.exception("Ooops. HTTP error encountered.")
+
+                if httpe.code in (503, 504):
+                    logger.info("code is retriable, re-enqueueing...")
+                    redis_client.rpush(LISTNAME, url)
+                else:
+                    logger.info("%s can't be retried." % url)
