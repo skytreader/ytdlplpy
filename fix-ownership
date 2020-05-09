@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e -u
+me="$(whoami)"
+sudo chown "$me:$me" ~/Videos/ytdlpl/*
