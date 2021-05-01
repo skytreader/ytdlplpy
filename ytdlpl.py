@@ -1,5 +1,6 @@
 import logging
 import redis
+import socket
 import youtube_dl
 
 from urllib.error import HTTPError
@@ -33,6 +34,12 @@ if __name__ == "__main__":
 
                 if httpe.code in (503, 504):
                     logger.info("code is retriable, re-enqueueing...")
-                    redis_client.rpush(LISTNAME, url)
+                    redis_client.rpush(LIST_NAME, url)
                 else:
                     logger.info("%s can't be retried." % url)
+            except socket.gaierror as GAIError:
+                logger.exception("Socker error occurred. Probably retriable...")
+                redis_client.rpush(LIST_NAME, url)
+            except youtube_dl.utils.DownloadError as DLError:
+                logger.exception("Super generic error. Will attempt retry...")
+                redis_client.rpush(LIST_NAME, url)
