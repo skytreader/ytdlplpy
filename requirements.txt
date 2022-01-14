@@ -1,2 +1,2 @@
 redis==3.4.1
-youtube-dl
+git+https://github.com/skytreader/youtube-dl-1.git@master
