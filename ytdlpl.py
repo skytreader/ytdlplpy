@@ -1,7 +1,7 @@
 import logging
 import redis
 import socket
-import youtube_dl
+import yt_dlp as youtube_dl
 
 from urllib.error import HTTPError
 

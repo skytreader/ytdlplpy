@@ -1,2 +1,2 @@
-redis==3.4.1
-git+https://github.com/skytreader/youtube-dl-1.git@master
+redis==4.3.4
+yt-dlp==2022.8.19
