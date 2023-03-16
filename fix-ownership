@@ -1,4 +1,5 @@
 #!/bin/bash
 set -e -u
 me="$(whoami)"
-sudo chown "$me:$me" ~/Videos/ytdlpl/*
+sudo chown "$me:$me" ~/Videos/ytdlpl/*.mp4
+sudo chown "$me:$me" ~/Videos/ytdlpl/*.webm
