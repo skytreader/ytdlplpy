@@ -3,3 +3,4 @@ set -e -u
 me="$(whoami)"
 sudo chown "$me:$me" ~/Videos/ytdlpl/*.mp4
 sudo chown "$me:$me" ~/Videos/ytdlpl/*.webm
+sudo chown "$me:$me" ~/Videos/ytdlpl/*.part
