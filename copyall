@@ -1,0 +1,16 @@
+#!/bin/bash
+set -eu
+
+SRC="/home/$(whoami)/Videos/ytdlpl"
+DEST="$1"
+
+type="$(file $DEST | awk '{print $2}')"
+
+if [ "$type" == "directory" ]; then
+    set -x
+    find "$SRC" -maxdepth 1 -user root -exec cp {} "$DEST" \;
+    set +x
+else
+    exit 1
+fi
+set +eu
