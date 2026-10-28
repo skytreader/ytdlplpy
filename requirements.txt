@@ -1,2 +1,2 @@
 redis==4.3.4
-yt-dlp[default,curl-cffi]==2026.06.09
+yt-dlp[default,curl-cffi]==2026.10.26

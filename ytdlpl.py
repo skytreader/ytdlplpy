@@ -34,6 +34,7 @@ if __name__ == "__main__":
         "outtmpl": DL_DEST + "/%(title)s.%(ext)s",
         "writesubtitles": True,
         "subtitleslangs": ["en"],
+        "js_runtimes": {"node": {}},
         "extractor_args": {
             "generic": {
                 "impersonate": [""]
