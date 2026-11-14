@@ -49,6 +49,8 @@ I want to
 - **change the location where my videos are downloaded:** Edit the `volumes`
 mounted by the `ytdlpl` service, map your desired directory location to
 `/root/Videos/ytdlpl` of the service's image.
+- **enqueue everything in a `/n`-separated text file:** `xargs -a list.txt -0
+  ./ytdlplnq`
 
 ## License
 
